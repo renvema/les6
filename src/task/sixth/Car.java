@@ -1,5 +1,7 @@
 package task.sixth;
 
+import java.awt.*;
+
 public class Car implements Cloneable {
     private String model;
     private String color;
@@ -10,6 +12,7 @@ public class Car implements Cloneable {
         this.color = color;
         this.yearIssua = yearIssua;
     }
+
 
     public String getModel() {
         return model;
@@ -36,8 +39,8 @@ public class Car implements Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public Car clone() {
+        return new Car(model, color, yearIssua);
     }
 
     @Override
@@ -53,7 +56,7 @@ public class Car implements Cloneable {
         Car car = new Car("BMW", "white", 2017);
         Car cloneCar = (Car) car.clone();
         System.out.println(cloneCar.toString());
-        car.setColor("red");
+        car.getModel().setColor("red");
         System.out.println(car.toString());
         System.out.println(cloneCar.toString());
     }
