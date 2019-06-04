@@ -11,10 +11,6 @@ public class Car implements Cloneable {
         this.yearIssua = yearIssua;
     }
 
-    public Car(Car other) {
-        this(other.getModel(), other.getColor(), other.getYearIssua());
-    }
-
     public String getModel() {
         return model;
     }
@@ -41,8 +37,7 @@ public class Car implements Cloneable {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-
-        return new Car(this.getModel(), this.getColor(), this.getYearIssua());
+        return (Car) super.clone();
     }
 
     @Override
